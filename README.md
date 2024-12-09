@@ -1,2 +1,2 @@
-# managefy
-Projeto fin
+# Managefy
+Projeto final do Curso Java WEB

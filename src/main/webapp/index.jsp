@@ -11,7 +11,7 @@
     <div class="container text-center border border-secondary-subtle p-3 w-25 rounded-3 bg-primary-subtle">
         <h1 class="text-center mb-4">Welcome</h1>
         <p class= "fs-5 mb-4">Enter your credentials to log in</p>
-        <form action="lista-equipamentos.jsp" method="post" class="text-center">
+        <form action="views/lista-equipamentos.jsp" method="post" class="text-center">
             <div class="d-flex flex-column gap-4 mb-3">
                 <div id="email-box">
                     <label for="matricula" class="form-label">Student ID</label>

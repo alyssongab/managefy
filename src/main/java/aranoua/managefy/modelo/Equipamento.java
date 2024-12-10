@@ -8,7 +8,6 @@ public class Equipamento {
     private int ano_lancamento;
 
     public Equipamento(){
-
     }
 
     public Equipamento(String equipamento, String marca, String modelo) {

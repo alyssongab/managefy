@@ -21,7 +21,7 @@ public class EquipamentoDAO {
         String inserir = "insert into equipamento " +
                         "(equip, marca, modelo, ano_lancamento) " +
                         "values " +
-                        "('"+equip.getEquipamento()+"', '"+equip.getMarca()+"', '"+equip.getModelo()+", "+equip.getAno_lancamento()+"');";
+                        "('"+equip.getEquipamento()+"', '"+equip.getMarca()+"', '"+equip.getModelo()+"', "+equip.getAno_lancamento()+");";
 
         System.out.println("SQL: " + inserir);
         stmt.execute(inserir);
@@ -84,12 +84,12 @@ public class EquipamentoDAO {
     }
 
     // consultar equipamentos pelo numero de tombo
-    public Equipamento consultar(int num_tombo) throws SQLException {
+    public Equipamento consultar(long num_tombo) throws SQLException {
         ConexaoBD con = new ConexaoBD();
         Connection conexao = con.getConexao();
         Statement stmt = conexao.createStatement();
 
-        String consultar = "select * from equipamento where id = "+num_tombo+";";
+        String consultar = "select * from equipamento where num_tombo = "+num_tombo+";";
         System.out.println("SQL: " + consultar);
 
         ResultSet resultados = stmt.executeQuery(consultar); //

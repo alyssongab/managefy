@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 @WebServlet(name = "loginServlet", value = "/home")
 public class LoginServlet extends HttpServlet {
 
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String matricula = request.getParameter("matricula");
         String senha = request.getParameter("senha");
@@ -22,7 +23,7 @@ public class LoginServlet extends HttpServlet {
         boolean autenticado = autenticarUsuario(matricula, senha);
 
         if(autenticado){
-            response.sendRedirect("views/lista-equipamentos.jsp");
+            response.sendRedirect("lista-equipamentos.jsp");
         }
         else {
             request.setAttribute("mensagemErro", "Credenciais inválidas");

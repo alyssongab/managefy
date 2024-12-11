@@ -66,7 +66,7 @@
                     <td><%= e.getEquipamento() %></td>
                     <td><%= e.getMarca() %></td>
                     <td>
-                        <a href="detalhes-equipamento.jsp?id=<%= e.getNum_tombo() %>" class="btn btn-info btn-sm">Ver Detalhes</a>
+                        <a href="detalhes-equipamento.jsp?num_tombo=<%= e.getNum_tombo() %>" class="btn btn-info btn-sm">Ver Detalhes</a>
                         <a href="altera-equipamento.jsp?num_tombo=<%= e.getNum_tombo() %>" class="btn btn-warning btn-sm">Editar</a>
                         <button onclick="abrirPopup('<%= e.getNum_tombo() %>')" class="btn btn-danger btn-sm">Excluir</button>
                     </td>

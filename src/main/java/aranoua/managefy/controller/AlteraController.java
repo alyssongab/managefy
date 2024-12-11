@@ -2,7 +2,6 @@ package aranoua.managefy.controller;
 
 import aranoua.managefy.dao.EquipamentoDAO;
 import aranoua.managefy.modelo.Equipamento;
-import aranoua.managefy.util.ConexaoBD;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -11,11 +10,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 @WebServlet("/alterar")
-public class AlteraServlet extends HttpServlet {
+public class AlteraController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String numTombo = request.getParameter("id");
         String equipamento = request.getParameter("equipamento");

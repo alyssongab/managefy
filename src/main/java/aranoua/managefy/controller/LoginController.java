@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 @WebServlet(name = "loginServlet", value = "/home")
-public class LoginServlet extends HttpServlet {
+public class LoginController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

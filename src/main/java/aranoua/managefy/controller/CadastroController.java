@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.Connection;
 
 @WebServlet(name = "cadastro", value = "/cadastro")
-public class CadastroServlet extends HttpServlet {
+public class CadastroController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String equipamento = request.getParameter("equipamento");

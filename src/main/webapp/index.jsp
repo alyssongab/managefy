@@ -16,20 +16,20 @@
                 <%= mensagemErro %>
             </div>
         <% } %>
-        <h1 class="text-center mb-4">Welcome</h1>
-        <p class= "fs-5 mb-4">Enter your credentials to log in</p>
+        <h1 class="text-center mb-4">Bem vindo</h1>
+        <p class= "fs-5 mb-4">Faça login para continuar</p>
         <form action="home" method="post" class="text-center">
             <div class="d-flex flex-column gap-4 mb-3">
                 <div id="email-box">
-                    <label for="matricula" class="form-label">Student ID</label>
+                    <label for="matricula" class="form-label">ID da matrícula</label>
                     <input type="text" name="matricula" id="matricula" class="text-center form-control w-75 mx-auto" required>
                 </div>
                 <div id="password-box">
-                    <label for="SENHA" class="form-label">Password</label>
+                    <label for="SENHA" class="form-label">Senha</label>
                     <input type="password" name="senha" id="senha" class="text-center form-control w-75 mx-auto" required>
                 </div>
 
-                <button type="submit" class="w-50 mb-3 mx-auto btn btn-primary">Continue</button>
+                <button type="submit" class="w-50 mb-3 mx-auto btn btn-primary">Log in</button>
             </div>
         </form>
     </div>

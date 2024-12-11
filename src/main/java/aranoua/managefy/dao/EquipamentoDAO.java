@@ -11,8 +11,7 @@ public class EquipamentoDAO {
 
     // cadastrar ou inserir equipamento
     public void inserir(Equipamento equip) throws SQLException {
-        ConexaoBD con = new ConexaoBD();
-        Connection conexao = con.getConexao();
+        Connection conexao = ConexaoBD.getConexao();
         Statement stmt = conexao.createStatement();
 
         String inserir = "insert into equipamento " +
@@ -24,34 +23,32 @@ public class EquipamentoDAO {
         stmt.execute(inserir);
     }
 
+    // editar equipamento
     public void alterar(Equipamento equip) throws SQLException {
-        ConexaoBD con = new ConexaoBD();
-        Connection conexao = con.getConexao();
+        Connection conexao = ConexaoBD.getConexao();
 
-        // SQL com placeholders para os parâmetros
+        // sql utilizando prepared statement
         String alterarSQL = "UPDATE equipamento SET equip = ?, marca = ?, modelo = ?, ano_lancamento = ? WHERE num_tombo = ?";
 
         try (PreparedStatement stmt = conexao.prepareStatement(alterarSQL)) {
-            // Definindo os parâmetros da query
+            // definindo os parâmetros da instrução
             stmt.setString(1, equip.getEquipamento());
             stmt.setString(2, equip.getMarca());
             stmt.setString(3, equip.getModelo());
             stmt.setInt(4, equip.getAno_lancamento());
             stmt.setLong(5, equip.getNum_tombo());
 
-            // Executando a atualização
+            // executa a instrução
             stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Erro ao alterar equipamento: " + e.getMessage());
-            throw e; // Relançar a exceção para ser tratada na camada superior
         }
     }
 
 
     // excluir equipamento
     public void excluir(Equipamento equip) throws SQLException {
-        ConexaoBD con = new ConexaoBD();
-        Connection conexao = con.getConexao();
+        Connection conexao = ConexaoBD.getConexao();
         Statement stmt = conexao.createStatement();
 
         String excluir = "delete from equipamento where num_tombo = "+equip.getNum_tombo()+";";
@@ -62,8 +59,7 @@ public class EquipamentoDAO {
 
     // Listar equipamentos
     public List<Equipamento> listar() throws SQLException {
-        ConexaoBD con = new ConexaoBD();
-        Connection conexao = con.getConexao();
+        Connection conexao = ConexaoBD.getConexao();
         Statement stmt = conexao.createStatement();
 
         String listar = "select num_tombo, equip, marca from equipamento;";
@@ -89,8 +85,7 @@ public class EquipamentoDAO {
 
     // consultar equipamentos pelo numero de tombo
     public Equipamento consultar(long num_tombo) throws SQLException {
-        ConexaoBD con = new ConexaoBD();
-        Connection conexao = con.getConexao();
+        Connection conexao = ConexaoBD.getConexao();
         Statement stmt = conexao.createStatement();
 
         String consultar = "select * from equipamento where num_tombo = "+num_tombo+";";

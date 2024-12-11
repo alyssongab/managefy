@@ -3,10 +3,7 @@ package aranoua.managefy.dao;
 import aranoua.managefy.modelo.Equipamento;
 import aranoua.managefy.util.ConexaoBD;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,22 +24,29 @@ public class EquipamentoDAO {
         stmt.execute(inserir);
     }
 
-    // alterar equipamento
     public void alterar(Equipamento equip) throws SQLException {
         ConexaoBD con = new ConexaoBD();
         Connection conexao = con.getConexao();
-        Statement stmt = conexao.createStatement();
 
-        String alterar = "update equipamento " +
-                        "set equip = '"+equip.getEquipamento()+"', "+
-                        "marca = '"+equip.getMarca()+"', "+
-                        "modelo = '"+equip.getModelo()+"', "+
-                        "ano_lancamento = "+equip.getAno_lancamento()+
-                        "where num_tombo = "+equip.getNum_tombo()+";";
+        // SQL com placeholders para os parâmetros
+        String alterarSQL = "UPDATE equipamento SET equip = ?, marca = ?, modelo = ?, ano_lancamento = ? WHERE num_tombo = ?";
 
-        System.out.println("SQL: " + alterar);
-        stmt.execute(alterar);
+        try (PreparedStatement stmt = conexao.prepareStatement(alterarSQL)) {
+            // Definindo os parâmetros da query
+            stmt.setString(1, equip.getEquipamento());
+            stmt.setString(2, equip.getMarca());
+            stmt.setString(3, equip.getModelo());
+            stmt.setInt(4, equip.getAno_lancamento());
+            stmt.setLong(5, equip.getNum_tombo());
+
+            // Executando a atualização
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Erro ao alterar equipamento: " + e.getMessage());
+            throw e; // Relançar a exceção para ser tratada na camada superior
+        }
     }
+
 
     // excluir equipamento
     public void excluir(Equipamento equip) throws SQLException {

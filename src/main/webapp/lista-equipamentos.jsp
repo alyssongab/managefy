@@ -66,8 +66,8 @@
                     <td><%= e.getEquipamento() %></td>
                     <td><%= e.getMarca() %></td>
                     <td>
-                        <a href="detalhesEquipamento.jsp?id=<%= e.getNum_tombo() %>" class="btn btn-info btn-sm">Ver Detalhes</a>
-                        <a href="editarEquipamento.jsp?id=<%= e.getNum_tombo() %>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="detalhes-equipamento.jsp?id=<%= e.getNum_tombo() %>" class="btn btn-info btn-sm">Ver Detalhes</a>
+                        <a href="altera-equipamento.jsp?num_tombo=<%= e.getNum_tombo() %>" class="btn btn-warning btn-sm">Editar</a>
                         <button onclick="abrirPopup('<%= e.getNum_tombo() %>')" class="btn btn-danger btn-sm">Excluir</button>
                     </td>
 
@@ -94,6 +94,7 @@
                 String tipoMensagem = (String) request.getAttribute("tipoMensagem");
             %>
 
+            <%-- Mensagem de sucesso após excluir --%>
             <% if (mensagem != null && tipoMensagem != null) { %>
             <div class="alert alert-<%= tipoMensagem %> alert-dismissible fade show" role="alert">
                 <%= mensagem %>

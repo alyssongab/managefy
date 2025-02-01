@@ -2,7 +2,7 @@
 
 Projeto final do Curso Java Web - Gerenciamento de equipamentos eletrônicos com CRUD e integração com banco de dados e utilizando o padrão MVC.
 
-## Tecnologias
+## Tecnologias utilizadas
 - Java 17
 - JSP
 - Servlets
